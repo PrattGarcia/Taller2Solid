@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Leche;
 
-/**
- *
- * @author Pedro Mendoza
- */
+import java.util.Scanner;
+
 public class LecheDeslactosada extends LecheEntera {
     
     @Override
@@ -16,10 +9,21 @@ public class LecheDeslactosada extends LecheEntera {
         System.out.println("Usando leche deslactosada");
     }
 
-    @Override
-    public void usarPastel() {
+    public boolean usarPastel() {
+        
+        Scanner lector = new Scanner(System.in);
         // Lanzar error No se puede usar en pastel
-        throw new RuntimeException(this.getClass() + ": No se puede usar en pastel");
+        //throw new RuntimeException(this.getClass() + ": No se puede usar en pastel");
+        System.out.println("No se puede usar en pastel, desea usar helado Y/N?");
+        String res = lector.nextLine();
+        if(res == "Y".toUpperCase()){
+            usarHelado();
+            return true;
+        }else{
+            System.out.println("Entendido no se cambiara la leche");
+            return false;
+        }
+        
     }
         
 }
